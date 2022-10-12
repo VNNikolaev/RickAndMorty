@@ -48,7 +48,7 @@ private extension TVButtonView {
     }
 
     var screenHeight: CGFloat {
-        animateTVScreen ? 13 : 0.01
+        animateTVScreen ? 13 : 0.001
     }
 
     func tapped() {

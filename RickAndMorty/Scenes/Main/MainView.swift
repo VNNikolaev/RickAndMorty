@@ -11,10 +11,16 @@ struct MainView: View {
     @ObservedObject var viewModel: MainViewModel
 
     var body: some View {
-        VStack {
-            Spacer()
-            Text("Its main view")
-            Spacer()
+        VStack(spacing: .zero) {
+            TabView(selection: $viewModel.activeTab) {
+                CharacterView()
+                    .tag(TabBarButton.boo)
+                LocationView()
+                    .tag(TabBarButton.planet)
+                EpisodeView()
+                    .tag(TabBarButton.tv)
+            }
+            .tabViewStyle(.page(indexDisplayMode: .never))
             tabBarButtons
         }
         .navigationBarHidden(true)
